@@ -1,0 +1,821 @@
+[
+    {
+        "id": "642daaa9dde2c062",
+        "type": "tab",
+        "label": "IR GUN GAME FLOW",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "76ec22fae7eb2eac",
+        "type": "group",
+        "z": "642daaa9dde2c062",
+        "name": "RANDOM LIGHT",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "aa69633b18bf44ea",
+            "f21f825c6adcc943",
+            "ac6e842ae94f988f",
+            "01d5483f5d660adc",
+            "64ec39a6cee4527e",
+            "571563330e11ec52",
+            "9f62855d899af6df"
+        ],
+        "x": 54,
+        "y": 239,
+        "w": 772,
+        "h": 382
+    },
+    {
+        "id": "d665d0e373d80a81",
+        "type": "group",
+        "z": "642daaa9dde2c062",
+        "name": "COUNT SCORE",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1be820700279d4c4",
+            "dcaf4ed3578fde7a",
+            "adfbd6b90cd30702"
+        ],
+        "x": 54,
+        "y": 79,
+        "w": 772,
+        "h": 122
+    },
+    {
+        "id": "7e7d5e89cf1ebe06",
+        "type": "group",
+        "z": "642daaa9dde2c062",
+        "name": "GAME STATE CHANGE",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "5c507827ab0e465a",
+            "24a0536001155e50",
+            "fc869633fc1826da",
+            "43c9192371d5a5d9",
+            "5f48b2af88d4bb3c",
+            "2e27a037c13acdbe",
+            "c912293aea827a6d",
+            "b2bfeb98d3f62dce",
+            "a5c57b3dbf9a6447"
+        ],
+        "x": 874,
+        "y": 239,
+        "w": 752,
+        "h": 322
+    },
+    {
+        "id": "91133fab681bb8bd",
+        "type": "group",
+        "z": "642daaa9dde2c062",
+        "name": "HIGHSCORE CHECK + SCORE DASHBOARD",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1f79d997f08ebe86",
+            "b087456a78a0c4d0",
+            "c8f1ddde0dd98e08",
+            "27fd06db7932fc16",
+            "7fe9476ee3fab3b0",
+            "68c45b262cc89481",
+            "4c9a442f56af78e8"
+        ],
+        "x": 54,
+        "y": 679,
+        "w": 932,
+        "h": 202
+    },
+    {
+        "id": "dcaf4ed3578fde7a",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "d665d0e373d80a81",
+        "name": "",
+        "topic": "b6610505624/hit",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "adfbd6b90cd30702",
+                "1be820700279d4c4"
+            ]
+        ]
+    },
+    {
+        "id": "adfbd6b90cd30702",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "d665d0e373d80a81",
+        "name": "",
+        "topic": "b6610505624/score",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5c507827ab0e465a",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "topic": "b6610505624/gamestate",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "43c9192371d5a5d9",
+                "c912293aea827a6d"
+            ]
+        ]
+    },
+    {
+        "id": "1f79d997f08ebe86",
+        "type": "ui_text",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "group": "93341038a9e2b590",
+        "order": 4,
+        "width": 9,
+        "height": 2,
+        "name": "",
+        "label": "YOUR SCORE : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 420,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b087456a78a0c4d0",
+        "type": "ui_text",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "group": "93341038a9e2b590",
+        "order": 1,
+        "width": 9,
+        "height": 2,
+        "name": "HIGH SCORE",
+        "label": "HIGH SCORE : ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 880,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "24a0536001155e50",
+        "type": "ui_switch",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "label": "OFFICE SYNDROME MODE",
+        "tooltip": "",
+        "group": "d6e496438da145b0",
+        "order": 2,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1020,
+        "y": 460,
+        "wires": [
+            [
+                "fc869633fc1826da"
+            ]
+        ]
+    },
+    {
+        "id": "fc869633fc1826da",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "topic": "b6610505624/ofsstate",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 1460,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "43c9192371d5a5d9",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "gunstate",
+        "topic": "b6610505624/changegamestate",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 1420,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5f48b2af88d4bb3c",
+        "type": "ui_button",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "group": "d6e496438da145b0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "PLAY",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "play_circle_outline",
+        "payload": "3",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1050,
+        "y": 400,
+        "wires": [
+            [
+                "43c9192371d5a5d9"
+            ]
+        ]
+    },
+    {
+        "id": "2e27a037c13acdbe",
+        "type": "ui_button",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "group": "d6e496438da145b0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "power_settings_new",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1050,
+        "y": 340,
+        "wires": [
+            [
+                "43c9192371d5a5d9",
+                "c912293aea827a6d"
+            ]
+        ]
+    },
+    {
+        "id": "c8f1ddde0dd98e08",
+        "type": "inject",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "27fd06db7932fc16"
+            ]
+        ]
+    },
+    {
+        "id": "27fd06db7932fc16",
+        "type": "change",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "name": "RESET HIGHSCORE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "highscore",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7fe9476ee3fab3b0",
+        "type": "switch",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "name": "highscore check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "highscore",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 840,
+        "wires": [
+            [
+                "68c45b262cc89481"
+            ]
+        ]
+    },
+    {
+        "id": "68c45b262cc89481",
+        "type": "change",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "name": "SET NEW HIGHSCORE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "highscore",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 840,
+        "wires": [
+            [
+                "b087456a78a0c4d0"
+            ]
+        ]
+    },
+    {
+        "id": "c912293aea827a6d",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "targetstate",
+        "topic": "b6610505624/targetstate",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 1430,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4c9a442f56af78e8",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "91133fab681bb8bd",
+        "name": "",
+        "topic": "b6610505624/sumscore",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 840,
+        "wires": [
+            [
+                "7fe9476ee3fab3b0",
+                "1f79d997f08ebe86"
+            ]
+        ]
+    },
+    {
+        "id": "aa69633b18bf44ea",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/randomnum1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 340,
+        "wires": [
+            [
+                "64ec39a6cee4527e",
+                "01d5483f5d660adc",
+                "ac6e842ae94f988f"
+            ]
+        ]
+    },
+    {
+        "id": "f21f825c6adcc943",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/target1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 700,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ac6e842ae94f988f",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/target3",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 700,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "01d5483f5d660adc",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/target2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "64ec39a6cee4527e",
+        "type": "debug",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "random",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1be820700279d4c4",
+        "type": "debug",
+        "z": "642daaa9dde2c062",
+        "g": "d665d0e373d80a81",
+        "name": "h",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "571563330e11ec52",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/randomnum2",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "f21f825c6adcc943",
+                "ac6e842ae94f988f"
+            ]
+        ]
+    },
+    {
+        "id": "9f62855d899af6df",
+        "type": "mqtt in",
+        "z": "642daaa9dde2c062",
+        "g": "76ec22fae7eb2eac",
+        "name": "",
+        "topic": "b6610505624/randomnum3",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9219be9e675144c3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "01d5483f5d660adc",
+                "f21f825c6adcc943"
+            ]
+        ]
+    },
+    {
+        "id": "b2bfeb98d3f62dce",
+        "type": "ui_dropdown",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "label": "COUNTDOWN TIME",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "d6e496438da145b0",
+        "order": 1,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "1 min",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "30 min",
+                "value": "30",
+                "type": "str"
+            },
+            {
+                "label": "45 min",
+                "value": "45",
+                "type": "str"
+            },
+            {
+                "label": "60 min",
+                "value": "60",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 1080,
+        "y": 520,
+        "wires": [
+            [
+                "a5c57b3dbf9a6447"
+            ]
+        ]
+    },
+    {
+        "id": "a5c57b3dbf9a6447",
+        "type": "mqtt out",
+        "z": "642daaa9dde2c062",
+        "g": "7e7d5e89cf1ebe06",
+        "name": "",
+        "topic": "b6610505624/countdown",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9219be9e675144c3",
+        "x": 1490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c0fbbff28911a3a6",
+        "type": "ui_spacer",
+        "z": "642daaa9dde2c062",
+        "name": "spacer",
+        "group": "93341038a9e2b590",
+        "order": 2,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "a88f6e3a3c6f830d",
+        "type": "ui_spacer",
+        "z": "642daaa9dde2c062",
+        "name": "spacer",
+        "group": "93341038a9e2b590",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "8eda106b2a9b0b68",
+        "type": "ui_spacer",
+        "z": "642daaa9dde2c062",
+        "name": "spacer",
+        "group": "93341038a9e2b590",
+        "order": 5,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "56d24394fc9418e5",
+        "type": "ui_spacer",
+        "z": "642daaa9dde2c062",
+        "name": "spacer",
+        "group": "93341038a9e2b590",
+        "order": 6,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "9219be9e675144c3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iot.cpe.ku.ac.th",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "93341038a9e2b590",
+        "type": "ui_group",
+        "name": "SCORE",
+        "tab": "a91e708b34c8979b",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d6e496438da145b0",
+        "type": "ui_group",
+        "name": "GAME OPTION",
+        "tab": "a91e708b34c8979b",
+        "order": 2,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a91e708b34c8979b",
+        "type": "ui_tab",
+        "name": "INFRARED TARGET TREK DASHBOARD",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
