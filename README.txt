@@ -24,7 +24,11 @@
 2. โฟลเดอร์ schematic
 
 	- Schematic_hardwaredev	# เป็นไฟล์ที่เป็น schematic ของ ปืนและเป้าทั้งสาม
-		
+
+3. LICENSE.txt
+
+4. README.txt
+
 รายการไลบรารี่ที่ใช้
 
 	- Adafruit BusIO by Adafruit
@@ -33,10 +37,6 @@
 	- IRremote by shirriff,z3t0,ArminJo
 	- IRremoteESP8266 by David Conran, Sebastien Warin, Mark Szabo, Ken Shirriff
 	- PubSubCLient by Nick O'Leary<nick.oleary@gmail.com>
-
-3. LICENSE.txt
-
-4.README.txt
 
 รายการอุปกรณ์ฮาร์ดแวร์ที่ใช้
 
