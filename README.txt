@@ -48,4 +48,4 @@
 	- Green LED x 3
 	- OLED x 1
 	- button switch x 3
-	- 18650 battery shield x4
+	- 18650 battery shield x 4
